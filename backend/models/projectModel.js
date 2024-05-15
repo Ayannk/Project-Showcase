@@ -4,7 +4,7 @@ const mySchema = new Schema({
     title: { type: String, requied: true },
     category: String,
     subCategory: String,
-    cover: String,
+    cover: {type : String, default: 'cover-placeholder.png'},
     media: [Object],
     madeBy: { type: Types.ObjectId, ref: 'UserCollection' },
     department: String,

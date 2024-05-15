@@ -4,6 +4,8 @@ const express = require('express');
 
 const userRouter = require('./routers/userRouter');
 const contactRouter = require('./routers/contactRouter');
+const projectRouter = require('./routers/projectRouter');
+const utilRouter = require('./routers/util');
 
 //initialize expess
 const app = express();
@@ -19,6 +21,10 @@ app.use(cors(
 app.use(express.json());
 app.use('/user', userRouter);
 app.use('/contact', contactRouter);
+app.use('/project', projectRouter);
+app.use('/util', utilRouter);
+
+app.use(express.static('./static/uploads'));
 
 app.get('/', (req, res) => {
     res.send('Response from express');
